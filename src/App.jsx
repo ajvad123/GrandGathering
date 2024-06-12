@@ -16,9 +16,14 @@ import AddEvents from './Components/AddEvents'
 import Update from './Components/Update'
 import EventTicket from './Components/EventTicket'
 import CompanyBooking from './Components/CompanyBooking'
+import { TokenAuthContext } from './ContextApi/AuthContext'
+import { useContext } from 'react'
 
 
 function App() {
+
+  const { authContext, setAuthContext } = useContext(TokenAuthContext);
+
 
   return (
     <>
@@ -30,11 +35,11 @@ function App() {
 
 
         <Route path='/' element={<Landing />} />
-        <Route path='/dash' element={<Dashboard />} />
+        <Route path='/dash' element={authContext? <Dashboard /> :<Landing/>} />
         <Route path='/elist' element={<EventList />} />
         <Route path='/ecompany' element={<EventCompanies />} />
         <Route path='/auth' element={<Auth />} />
-        <Route path='/admin' element={<Admin />} />
+        <Route path='/admin' element={ authContext?  <Admin /> :<Landing/> } />
         <Route path='/dash/addeCmpny' element={<AddEcompanies />} />
         <Route path='/dash/addevnt' element={<AddEvents />} />
         <Route path='/dash/edit' element={<Update />} />
@@ -45,9 +50,9 @@ function App() {
 
 
 
-        
 
-        
+
+
 
 
 

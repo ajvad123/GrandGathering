@@ -240,7 +240,7 @@ function Edit({ event, company }) {
 
                         <Col>
                             <label>
-                                <input type="file" name='' onChange={e => event ? setEvtData({ ...EvtData, eimage: e.target.files[0] }) : (e) => setCmpData({ ...cmpData, cimage: e.target.files[0] })} style={{ display: 'none' }} />
+                                <input type="file" name='' onChange={e => event ? setEvtData({ ...EvtData, eimage: e.target.files[0] }) : (e) => setEcamCmpData({ ...EcamData, cimage: e.target.files[0] })} style={{ display: 'none' }} />
                                 <img className='img-fluid' src={preview ? preview : event ? `${base_url}/Uploads/${event.eimage}` : `${base_url}/Uploads/${company.cimage}`} alt="" />
                                 {
                                     imageStatus &&
@@ -256,16 +256,16 @@ function Edit({ event, company }) {
                         <Col>
                             <div>
                                 <FloatingLabel controlId="titleinp" label={event ? "Event Title" : "Company Title"} className='mb-3' >
-                                    <Form.Control type="text" value={event ? EvtData?.etitle : company?.ctitle} onChange={e => event ? setEvtData({ ...EvtData, etitle: e.target.value }) : (e) => setCmpData({ ...cmpData, ctitle: e.target.value })} placeholder={event ? "Event Name" : "Company Name"} />
+                                    <Form.Control type="text" value={event ? EvtData?.etitle : company?.ctitle} onChange={e => event ? setEvtData({ ...EvtData, etitle: e.target.value }) : (e) => setEcamCmpData({ ...EcamData, ctitle: e.target.value })} placeholder={event ? "Event Name" : "Company Name"} />
                                 </FloatingLabel>
                                 <FloatingLabel controlId="overviewinp" label={event ? "Event Type" : "Company Description"} className='mb-3'  >
-                                    <Form.Control type="text" value={event ? EvtData?.etype : company?.cdescription} onChange={e => event ? setEvtData({ ...EvtData, etype: e.target.value }) : (e) => setCmpData({ ...cmpData, cdescription: e.target.value })} placeholder={event ? "type of the event" : "small description about company"} />
+                                    <Form.Control type="text" value={event ? EvtData?.etype : company?.cdescription} onChange={e => event ? setEvtData({ ...EvtData, etype: e.target.value }) : (e) => setEcamCmpData({ ...EcamData, cdescription: e.target.value })} placeholder={event ? "type of the event" : "small description about company"} />
                                 </FloatingLabel>
                                 <FloatingLabel controlId="langinp" label="Location" className='mb-3' >
-                                    <Form.Control type="text" value={event ? EvtData?.elocation : company?.clocation} onChange={e => event ? setEvtData({ ...EvtData, elocation: e.target.value }) : setCmpData({ ...cmpData, clocation: e.target.value })} placeholder="Event Location " />
+                                    <Form.Control type="text" value={event ? EvtData?.elocation : company?.clocation} onChange={e => event ? setEvtData({ ...EvtData, elocation: e.target.value }) : setEcamCmpData({ ...EcamData, clocation: e.target.value })} placeholder="Event Location " />
                                 </FloatingLabel>
                                 <FloatingLabel controlId="githubinp" label={event ? "Time" : "Contact"} className='mb-3'  >
-                                    <Form.Control type="text" value={event ? EvtData?.etime : company?.ccontact} onChange={e => event ? setEvtData({ ...EvtData, etime: e.target.value }) : setCmpData({ ...cmpData, ccontact: e.target.value })} placeholder={event ? "Event time" : "contact"} />
+                                    <Form.Control type="text" value={event ? EvtData?.etime : company?.ccontact} onChange={e => event ? setEvtData({ ...EvtData, etime: e.target.value }) : setEcamCmpData({ ...EcamData, ccontact: e.target.value })} placeholder={event ? "Event time" : "contact"} />
                                 </FloatingLabel>
 
 
@@ -274,7 +274,7 @@ function Edit({ event, company }) {
 
                         </Col>
                         <FloatingLabel controlId="demoinp" label={event ? "Ticket Price" : "Web Link"} className='mb-3'  >
-                            <Form.Control type="text" value={event ? EvtData?.eticket : company?.clink} onChange={e => event ? setEvtData({ ...EvtData, eticket: e.target.value }) : setCmpData({ ...cmpData, clink: e.target.value })} placeholder={event ? "Ticket Price" : "company web site link"} />
+                            <Form.Control type="text" value={event ? EvtData?.eticket : company?.clink} onChange={e => event ? setEvtData({ ...EvtData, eticket: e.target.value }) : setEcamCmpData({ ...EcamData, clink: e.target.value })} placeholder={event ? "Ticket Price" : "company web site link"} />
                         </FloatingLabel>
 
                     </Row>

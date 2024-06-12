@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState ,useContext } from 'react'
 import { Row, Col } from 'react-bootstrap'
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
@@ -6,10 +6,13 @@ import { toast } from 'react-toastify';
 import { userRegister } from '../Services/allApies';
 import { userLogin } from '../Services/allApies';
 import { useNavigate } from 'react-router-dom';
+import { TokenAuthContext } from '../ContextApi/AuthContext';
 
 
 
 function Auth() {
+
+    const {authContext,setAuthContext} =useContext(TokenAuthContext)
 
     const [status, setStatus] = useState(true)
     const [data, setData] = useState({
@@ -74,6 +77,7 @@ function Auth() {
 
                     toast.success("Admin Login Successfull")
                     navigate('/admin')
+                    setAuthContext(true)
 
 
                 } else {
@@ -82,6 +86,8 @@ function Auth() {
                     sessionStorage.setItem("username", result.data.user)
                     toast.success("Login Successfull")
                     navigate('/dash')
+                    setAuthContext(true)
+
 
 
 
